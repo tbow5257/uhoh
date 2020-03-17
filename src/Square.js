@@ -1,13 +1,16 @@
 import React from 'react';
 
-const onClick = (e) => {
-    console.log(e)
+const onClick = (a,b) => {
+    console.log(a,b)
 }
 
 function Square(props) {
-    const key = props.value
+    const column = props.column;
+    const row = props.row;
     return (
-        <div onClick={() => onClick(key)} style={{margin:'5px'}}>
+        <div row={row} 
+                onClick={() => onClick(column, row)} 
+                style={{margin:'15px 30px'}}>
             *
         </div>
     );
