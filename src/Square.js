@@ -1,27 +1,27 @@
 import React, { useContext } from 'react';
-import { MatrixContext } from './Grid';
+import { MatrixContextConsumer } from './MatrixContextProvider';
 
 
 function Square(props) {
-    const matrix = useContext(MatrixContext);
+    // const matrix = useContext(MatrixContextConsumer);
     const column = props.column;
     const row = props.row;
 
     const onClick = (b) => {
-        console.log(matrix)
+        console.log(b)
     }
     
 
     return (
-        <MatrixContext.Consumer>
+        <MatrixContextConsumer>
             { (m) => (
-                            <div row={row} 
+                    <div row={row} 
                             onClick={() => onClick()} 
                             style={{margin:'15px 30px'}}>
                         { m[`${column},${row}`] === false ? "*" : "t" }
                     </div>
             )}
-        </MatrixContext.Consumer>
+        </MatrixContextConsumer>
     );
 }
 
